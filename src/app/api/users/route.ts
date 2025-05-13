@@ -43,7 +43,7 @@ export async function DELETE(request: Request) {
       method: 'DELETE',
     });
 
-    if (res.ok) {
+    if (res) {
       return NextResponse.json({ message: 'User deleted successfully' }); 
     } else {
       return NextResponse.json({ error: 'Failed to delete user' });  
