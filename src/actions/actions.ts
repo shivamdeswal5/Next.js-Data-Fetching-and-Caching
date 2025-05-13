@@ -2,7 +2,7 @@
 
 export async function getUsers() {
   try {
-    const res = await fetch('https://dummyjson.com/users?limit=10');
+    const res = await fetch('https://dummyjson.com/users?limit=10',{next: { revalidate: 3600 }});
     const data = await res.json();
     return data.users;
   } catch (error) {
@@ -16,7 +16,7 @@ export async function addUser(formData: FormData) {
   const name = formData.get('name') as string;
   const email = formData.get('email') as string;
   if (!name || !email) {
-    console.error('Missing name or email');
+    console.error('no name or email');
     return null;
   }
   try {
