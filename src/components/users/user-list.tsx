@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { deleteUser } from '@/actions/actions';
 import style from './style.module.css';
+import Image from 'next/image';
 
 export type User = {
   id: number;
@@ -32,10 +33,10 @@ export default function UserList({ users }: Props) {
       {userList.map((user) => (
         <div key={user.id} className={style.userCard}>
           <h2>{user.firstName} {user.lastName}</h2>
-          <img
+          <Image
             src={user.image}
-            height='150px'
-            width='150px'
+            height={150}
+            width={150}
             alt={`${user.firstName} ${user.lastName}`}
           />
           <p className={style.description}>{user.university}</p>

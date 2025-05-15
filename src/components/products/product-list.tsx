@@ -3,6 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import style from './style.module.css';
+import Image from 'next/image';
 
 type Product = {
   id: number;
@@ -45,7 +46,7 @@ export default function ProductList() {
       {products.map((product) => (
         <div key={product.id} className={style.productCard}>
           <h2>{product.title}</h2>
-          <img src={product.thumbnail} height='150px'  width='150px'/>
+          <Image src={product.thumbnail} height={150}  width={150} alt='image'/>
           <p className={style.discription}>{product.description}</p>
           <p><b>Price: ${product.price}</b></p>
         </div>
